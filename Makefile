@@ -22,7 +22,7 @@ runme: $(ÄRT_O) $(APP_O)
 	ld $^ -o $@
 
 clean:
-	-rm $(ÄRT_O) $(APP_O)
+	-rm $(ÄRT_O) $(APP_O) runme
 
 %.o: %.s
-	nasm -f elf64 $< -o $@
+	nasm -I$(ÄRT_DIR) -f elf64 $< -o $@
