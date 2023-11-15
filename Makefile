@@ -19,8 +19,10 @@ all: runme
 	
 
 runme: $(ÄRT_O) $(APP_O)
-	gcc $^ -o $@
+	ld $^ -o $@
 
+clean:
+	-rm $(ÄRT_O) $(APP_O)
 
 %.o: %.s
 	nasm -f elf64 $< -o $@

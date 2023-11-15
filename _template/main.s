@@ -6,7 +6,7 @@ msg:
 
 
     SECTION .text
-    global main
+    global _start
 
-main:
+_start:
     ret
