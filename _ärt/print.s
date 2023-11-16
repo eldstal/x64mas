@@ -12,13 +12,10 @@ print_str:
     pushall
 
     call str_length
-    mov rdx, rax
+    ; string length is in rax
 
-    xor rdi,rdi   ; stdout
-    mov rsi, rcx  ; buf
-    xor rdx, 0    ; size
-    mov rax, 1    ; sys_write
-    syscall
+    ; sys_write(fd=stdout, buf=rcx, size=rax)
+    syscall3 1, 0, rcx, rax
 
     popall
     leave
