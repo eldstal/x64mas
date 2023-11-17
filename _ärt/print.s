@@ -1,4 +1,5 @@
 %include "ärt_utils.inc"
+%include "syscall.inc"
     global print_str
 
     EXTERN str_length
@@ -15,7 +16,7 @@ print_str:
     ; string length is in rax
 
     ; sys_write(fd=stdout, buf=rcx, size=rax)
-    syscall3 1, 0, rcx, rax
+    syscall3 SYS_write, 0, rcx, rax
 
     popall
     leave
