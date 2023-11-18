@@ -12,15 +12,15 @@
 %endmacro
 
 %macro popall 0
-    push r15
-    push r14
-    push r13
-    push r12
-    push r11
-    push r10
-    push rdi
-    push rsi
-    push rbx
-    push rax
+    pop r15
+    pop r14
+    pop r13
+    pop r12
+    pop r11
+    pop r10
+    pop rdi
+    pop rsi
+    pop rbx
+    pop rax
 %endmacro
 
