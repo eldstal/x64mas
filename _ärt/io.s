@@ -4,6 +4,14 @@
     EXTERN str_length
     EXTERN int_to_str
 
+
+		SECTION .data
+
+newline:
+		db 0xa, 0
+
+
+    SECTION .text
 ;
 ; rcx: string buffer
 ;
@@ -21,6 +29,14 @@ print_str:
     leave
     ret
 
+
+global print_newline
+print_newline:
+  push rcx
+  mov rcx, newline
+  call print_str
+  pop rcx
+  ret
 
 ;
 ; rcx: integer

@@ -33,9 +33,7 @@ _start:
     mov rcx, rax
 		mov rdx, 10
 		call print_int
-
-    mov rcx, newline
-    call print_str
+    call print_newline
 
 		mov rcx, nostring
     call str_length
@@ -43,23 +41,17 @@ _start:
     mov rcx, rax
 		mov rdx, 10
 		call print_int
-
-    mov rcx, newline
-    call print_str
+    call print_newline
 
 		mov rcx, 0xdeadbeef
 		mov rdx, 16
 		call print_int
-
-    mov rcx, newline
-    call print_str
+    call print_newline
 
 		mov rcx, 0xdeadbeef
 		mov rdx, 2
 		call print_int
-
-    mov rcx, newline
-    call print_str
+    call print_newline
 
 
     ;
@@ -74,9 +66,7 @@ _start:
     mov rcx, rax
     mov rdx, 16
     call print_int
-
-    mov rcx, newline
-    call print_str
+    call print_newline
 
     mov rdi, csv_out
     split_loop:
@@ -87,9 +77,7 @@ _start:
 
       mov rcx, rax
       call print_str
-
-      mov rcx, newline
-      call print_str
+      call print_newline
 
       add rdi, 8
       jmp split_loop
@@ -108,15 +96,11 @@ _start:
     mov rcx, rax
     mov rdx, 16
     call print_int
-
-    mov rcx, newline
-    call print_str
+    call print_newline
 
     mov rcx, inbuf
     call print_str
-
-    mov rcx, newline
-    call print_str
+    call print_newline
 
 
 
