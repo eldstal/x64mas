@@ -16,6 +16,8 @@ csv:
 csv_out:
     times 32 dq 0
 
+inbuf:
+    times 16 db 0
 
 
     SECTION .text
@@ -93,6 +95,29 @@ _start:
       jmp split_loop
 
     split_done:
+
+
+    ;
+    ; read_line
+    ;
+    mov rcx, 0    ; stdin
+    mov rdx, inbuf
+    mov r8, 16
+    call read_line
+
+    mov rcx, rax
+    mov rdx, 16
+    call print_int
+
+    mov rcx, newline
+    call print_str
+
+    mov rcx, inbuf
+    call print_str
+
+    mov rcx, newline
+    call print_str
+
 
 
     mov rax, 60 ; sys_exit

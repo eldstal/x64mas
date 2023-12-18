@@ -1,6 +1,7 @@
-; print.s
+; io.s
 EXTERN print_str
 EXTERN print_int
+EXTERN read_line
 
 ; string.s
 EXTERN str_length
