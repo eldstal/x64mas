@@ -69,7 +69,7 @@ print_int:
 ;
 ; Reads one whole line, replacing the \n with a NULL
 ; Blocking!
-; rcx: file descriptor (1, probably)
+; rcx: file descriptor (0, probably)
 ; rdx: output buffer
 ; r8: output buffer size
 ; returns number of read bytes, or -1 on buffer overrun
@@ -78,15 +78,16 @@ global read_line
 read_line:
 
   push rbx
+  push rcx
   push rdx
+  push r15
 
   xor rbx, rbx    ; Total read count
+  mov r15, rcx
 
   read_line_loop:
 
-    push rcx
-    syscall3 SYS_read, rcx, rdx, 1
-    pop rcx
+    syscall3 SYS_read, r15, rdx, 1
     cmp rax, 1
     jl read_line_done   ; EOF or error
 
@@ -112,6 +113,8 @@ read_line:
 
   mov rax, rbx    ; return value
 
+  pop r15
   pop rdx
+  pop rcx
   pop rbx
   ret
