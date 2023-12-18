@@ -17,6 +17,12 @@ APP_O=$(patsubst %.s,%.o,$(APP_SRC))
 
 all: runme
 	
+run: runme
+	./runme
+	@echo ""
+	
+debug: runme
+	gdb -ex start ./runme
 
 runme: $(ÄRT_O) $(APP_O)
 	ld $^ -o $@
