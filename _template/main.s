@@ -53,6 +53,35 @@ _start:
 		call print_int
     call print_newline
 
+    mov rcx, 0x2F
+    call is_digit
+    mov rcx, rax
+    mov rdx, 16
+    call print_int
+    call print_newline
+
+
+    mov rcx, "0"
+    call is_digit
+    mov rcx, rax
+    mov rdx, 16
+    call print_int
+    call print_newline
+
+    mov rcx, "9"
+    call is_digit
+    mov rcx, rax
+    mov rdx, 16
+    call print_int
+    call print_newline
+
+    mov rcx, 0x3A
+    call is_digit
+    mov rcx, rax
+    mov rdx, 16
+    call print_int
+    call print_newline
+
 
     ;
     ; str_split

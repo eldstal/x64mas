@@ -8,3 +8,4 @@ EXTERN read_line
 EXTERN str_length
 EXTERN int_to_str
 EXTERN str_split
+EXTERN is_digit

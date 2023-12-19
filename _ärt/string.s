@@ -11,6 +11,9 @@ digits:
 
 		SECTION .text
 
+
+
+
 ;
 ; rcx: string buffer
 ;
@@ -164,3 +167,26 @@ str_split:
     pop rcx
     ret
 
+;
+; rcx: single character
+; returns numeric value if it's a digit
+; returns -1 if it's not a digit
+;
+global is_digit
+is_digit:
+    push rcx
+
+    mov rax, -1
+
+    sub rcx, 0x30
+    jl is_digit_no
+
+    cmp rcx, 10
+    jge is_digit_no
+
+    mov rax, rcx
+
+    is_digit_no:
+
+    pop rcx
+    ret
