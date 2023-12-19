@@ -94,9 +94,9 @@ read_line:
   push rdx
   push r14
   push r15
+  push rdi
 
   xor rbx, rbx    ; Total read count
-  ;mov r15, rcx
 
   read_line_loop:
 
@@ -134,13 +134,8 @@ read_line:
     ; buffer overrun test
     inc rbx   ; count the last read character
     cmp rbx, r8
-    jl read_line_continue
-      mov rbx, -1
-      jmp read_line_done
-    read_line_continue:
-
-    ; TODO: Optimize. This label isn't needed.
-    jmp read_line_loop
+    jl read_line_loop
+    mov rbx, -1
 
 
   read_line_done:
@@ -148,6 +143,7 @@ read_line:
 
   mov rax, rbx    ; return value
 
+  pop rdi
   pop r15
   pop r14
   pop rdx
